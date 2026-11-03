@@ -1,0 +1,16 @@
+# ELEI runtime dependencies
+
+# 核心科学计算库
+numpy>=1.21
+pandas>=1.4
+scipy>=1.9
+scikit-learn>=1.1
+sympy>=1.11
+
+# Optional plotting helper in the fitter
+matplotlib>=3.5
+
+# OpenAI API 客户端 (用于调用 DeepSeek API)
+openai>=1.0
+requests>=2.28
+

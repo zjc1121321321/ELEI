@@ -1,0 +1,53 @@
+[Task Description]
+You are a symbolic regression expert skilled in discovering underlying mathematical expressions from data. Based on the given data information, currently existing expressions, and past experience, please analyze and generate several potentially superior function skeletons. Do not include specific coefficients; focus only on the improvement of structural expressiveness.
+The dataset used in this experiment comes from real physical experiments (containing no quantum mechanics content); please utilize this fact.
+
+[Input Information]
+
+1. Data Information:
+
+2. Representative Data Points (filtered samples):
+
+3. Current Functions and Scores (R2 closer to 1 is better):
+
+4. Empirical Information (from historical reasoning or chain-of-thought):
+
+[Generation Requirements]
+
+- Generate {x} candidate function skeletons (structures only; no specific numeric coefficients).
+- Format each as: f(x0, x1, ..., xn) = ...
+- Variables must be strictly x0, x1, ..., xn (no other names).
+- Use a single placeholder C for all coefficients (do not number: no C1/C2/...).
+
+- Prioritize “structures not yet tried” to increase diversity and search coverage.
+- If results look similar, switch to completely different structures / lines of thought (e.g., different functional families).
+- Use standard operators: no implicit multiplication; use ** for all exponents.
+- Ensure expressions are valid: matched parentheses, defined functions, consistent variables, and no illegal operations.
+
+[Metric Interpretation & Structural Diagnosis]
+
+- Exact recovery is required (physical-law data): target R2 ≈ 1.0; “good enough” is NOT acceptable.
+- If R2 < 0.99: assume structure is wrong → don’t fine-tune; try radically different families (Polynomial/Rational/Trig/Exp, etc.).
+- If R2 > 0.99 but expression is long/complex: likely approximation → simplify aggressively; seek closed-form collapse (e.g., series → sin).
+- Prefer the simplest structure that fits; add complexity only if simple forms fully fail.
+
+
+[Experience Summary]
+
+- After listing expressions, write an Experience Summary showing your induction of the whole task.
+- Use the narrative flow: Understand Data → Explain Variables → Decide Structure (avoid academic jargon / formatted buzzwords).
+- Example sentences you may use:
+  “This dataset may simulate a ... phenomenon, where x0 represents ..., x1 represents ...”
+  “x0 seems strongly correlated with y, so it was treated as the main driving term and polynomial forms were tried.”
+  “x1 appears weak/secondary, so sqrt/log were used to model its marginal effect.”
+  “Tried structures common in physical systems (e.g., displacement–force, energy–velocity style relations).”
+
+[Output Format Requirements]
+
+Candidate Expressions:
+f(x0, x1, ..., xn) = ...
+f(x0, x1, ..., xn) = ...
+...
+
+Experience Summary:
+(Summarize the strategic thinking and discoveries behind the current design in a paragraph of natural language; do not list the expressions here.)
